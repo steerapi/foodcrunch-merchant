@@ -1,5 +1,66 @@
-// Splash Merchant
-#pageGraph(data-role='page', ng-controller="Graph")
+#pageSplash(data-role='page')
+  div(data-role='content')
+    div
+      p
+        br
+      p
+        br
+    div(style='text-align: center;')
+      img(style='width: 188px; height: 75px;', src='http://assets.codiqa.com/ps/40498/c76e731665c1aa65Original_188x75.png')
+    div
+      p(style='text-align: center;')
+        span(style='font-family: tahoma, arial, helvetica, sans-serif;')
+          strong
+            span(style='color: rgb(0, 0, 255);', data-mce-style='color: #0000ff;')
+              | Merchant
+    input(type='text', ng-model="username", name='username', value='',placeholder="Username")
+    input(type='password', ng-model="password", name='password', value='',placeholder="Password")
+    a(data-role='button', href='#pageHome')
+      | Log In
+    a(data-role='button', href='')
+      | Log In With Facebook
+    div
+      a(href='', data-transition='fade')
+        | Sign Up
+    div
+      a(href='', data-transition='fade')
+        | Forgot Password?
+
+// FoodCrunch Merchant
+#pageHome(data-role='page',ng-controller="FoodCrunchMerchant")
+  div(data-role="header")
+    h3
+      | FoodCrunch Merchant
+  div(data-role='content')
+    a(data-role='button', href='#pageManageDiscounts')
+      | Manage Discounts
+    a(data-role='button', href='')
+      | Flash Sale
+    a(data-role='button', href='#page16')
+      | Expected Demand
+    ul(data-role='listview', data-divider-theme='b', data-inset='true')
+      li(data-role='list-divider', role='heading')
+        | Food Crunch Options
+      li(data-theme='c')
+        a(href='#page1', data-transition='slide')
+          | Manage Labor
+      li(data-theme='c')
+        a(href='#page1', data-transition='slide')
+          | Manage Discount Factor
+      li(data-theme='c')
+        a(href='#page1', data-transition='slide')
+          | Manage Options
+      li(data-theme='c')
+        a(href='#pageManagePayments', data-transition='slide')
+          | Manage Payments
+    a(data-role='button', href='#page16')
+    a(data-role='button', data-theme='e', href='#pageNearbyCustomers')
+      | Nearby Customers
+    a(data-role='button', data-theme='e', href='#page16')
+      | Loyalty
+
+//Manage Discounts
+#pageManageDiscounts(data-role='page', ng-controller="Graph")
   div(data-theme='a', data-role='header')
     h3
       | Discount Adjustment
@@ -19,122 +80,35 @@
       .span2
         a(data-role='button', ng-click='next()')
           | Next
-
-#page25(data-role='page')
-  div(data-role='content')
-    div
-      p
-        br
-      p
-        br
-    div(style='text-align: center;')
-      img(style='width: 188px; height: 75px;', src='http://assets.codiqa.com/ps/40498/c76e731665c1aa65Original_188x75.png')
-    div
-      p(style='text-align: center;')
-        span(style='font-family: tahoma, arial, helvetica, sans-serif;')
-          strong
-            span(style='color: rgb(0, 0, 255);', data-mce-style='color: #0000ff;')
-              | Merchant
-    a(data-role='button', href='#page24')
-      | Log In
-    a(data-role='button', href='#page24')
-      | Log In With Facebook
-    div
-      a(href='', data-transition='fade')
-        | Sign Up
-    div
-      a(href='', data-transition='fade')
-        | Forgot Password?
-
-// FoodCrunch Merchant
-#page16(data-role='page',ng-controller="FoodCrunchMerchant")
-  div(data-role='content')
-    h2
-      | FoodCrunch Merchant
-    a(data-role='button', href='#page16')
-      | Manage Discounts
-    a(data-role='button', href='#page16')
-      | Flash Sale
-    a(data-role='button', href='#page16')
-      | Expected Demand
-    ul(data-role='listview', data-divider-theme='b', data-inset='true')
-      li(data-role='list-divider', role='heading')
-        | Food Crunch Options
-      li(data-theme='c')
-        a(href='#page1', data-transition='slide')
-          | Manage Labor
-      li(data-theme='c')
-        a(href='#page1', data-transition='slide')
-          | Manage Discount Factor
-      li(data-theme='c')
-        a(href='#page1', data-transition='slide')
-          | Manage Options
-    a(data-role='button', href='#page16')
-    a(data-role='button', data-theme='e', href='#page18')
-      | Nearby Customers
-    a(data-role='button', data-theme='e', href='#page16')
-      | Loyalty
+    div(data-role='fieldcontain')
+      label(for='selectmenu7')
+        | Day
+      select(ng-model="dow",name='', data-theme='b')
+        option(value='Monday')
+          | Monday
+        option(value='Tuesday')
+          | Tuesday
+        option(value='Wednesday')
+          | Wednesday
+        option(value='Thursday')
+          | Thursday
+        option(value='Friday')
+          | Friday
+        option(value='Saturday')
+          | Saturday
+        option(value='Sunday')
+          | Sunday
 // Nearby Customers
-#page18(data-role='page',ng-controller="NearbyCustomers")
+#pageNearbyCustomers(data-role='page',ng-controller="NearbyCustomers")
   div(data-role='content')
     h2
       | Nearby Customers
     h3
       | You must have Aqui enabled to view nearby customers
-// Manage Discounts
-#page19(data-role='page',ng-controller="ManageDiscounts")
-  div(data-role='content')
-    div(data-role='navbar', data-iconpos='top')
-      ul
-        li
-          a(href='#page16', data-theme='', data-icon='')
-            | Home
-        li
-          a(href='#page19', data-theme='', data-icon='')
-            | View Demand
-    h2
-      | Manage Discounts
-    div
-      p
-        b
-          | Slide bars up and down to manage discounts
-      p
-        b
-          | //(add + / - / 0) sign to left of graph
-    div(style='text-align: center;')
-      img(style='width: 300px; height: 200px;', src='http://www.studyzone.org/testprep/math4/e/dogchart.jpg')
-    div(data-role='fieldcontain')
-      label(for='selectmenu7')
-        | Day
-      select(name='', data-theme='b')
-        option(value='option1')
-          | Today
-        option(value='value')
-          | Tomorrow
-        option(value='value')
-          | Wednesday
-        option(value='value')
-          | Thursday
-        option(value='value')
-          | Friday
-        option(value='value')
-          | Saturday
-        option(value='value')
-          | Sunday
+
 // Expected Demand Merchant
-#page20(data-role='page',ng-controller="ExpectedDemandMerchant")
+#pageExpectedDemandMerchant(data-role='page',ng-controller="ExpectedDemandMerchant")
   div(data-role='content')
-    div(data-role='navbar', data-iconpos='top')
-      ul
-        li
-          a(href='#page16', data-theme='', data-icon='')
-            | Home
-        li
-          a(href='#page19', data-theme='', data-icon='')
-            | Manage Discount
-        li
-          a(href='#page20', data-theme='', data-icon='')
-            | Flash Sale
     h2
       | Expected Demand
     div
@@ -165,19 +139,8 @@
     a(data-role='button', href='#page20')
       | View Data
 // Manage Accounts
-#page21(data-role='page',ng-controller="ManageAccounts")
+#pageManageAccounts(data-role='page',ng-controller="ManageAccounts")
   div(data-role='content')
-    div(data-role='navbar', data-iconpos='top')
-      ul
-        li
-          a(href='#page11', data-theme='', data-icon='')
-            | Home
-        li
-          a(href='#page11', data-theme='b', data-icon='')
-            | Accts & Payments
-    div
-      p
-        br
     div(data-role='fieldcontain')
       fieldset(data-role='controlgroup')
         label(for='textinput1')
@@ -197,8 +160,8 @@
       br
     a(data-role='button', href='#page21')
       | Create New Account
-// Manage Payments
-#page22(data-role='page',ng-controller="ManagePayments")
+// ManagePayments
+#pageManagePayments(data-role='page',ng-controller="ManagePayments")
   div(data-role='content')
     div(data-role='navbar', data-iconpos='top')
       ul
